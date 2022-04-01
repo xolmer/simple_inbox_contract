@@ -1,8 +1,8 @@
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
-const INITIAL_STRING = 'There is a new message';
 
+const INITIAL_STRING = 'There is a new message';
 const NEW_MESSAGE = 'XOLMER';
 
 const provider = ganache.provider();
