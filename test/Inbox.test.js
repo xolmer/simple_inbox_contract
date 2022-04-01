@@ -3,6 +3,8 @@ const ganache = require('ganache-cli');
 const Web3 = require('web3');
 const INITIAL_STRING = 'There is a new message';
 
+const NEW_MESSAGE = 'XOLMER';
+
 const provider = ganache.provider();
 const web3 = new Web3(provider);
 
@@ -29,5 +31,13 @@ describe('Inbox', () => {
   it('has a default message', async () => {
     const message = await inbox.methods.message().call();
     assert.equal(message, INITIAL_STRING);
+  });
+
+  it('can change the message', async () => {
+    await inbox.methods
+      .setMessage(NEW_MESSAGE)
+      .send({ from: accounts[0], gas: '1000000' });
+    const message = await inbox.methods.message().call();
+    assert.equal(message, NEW_MESSAGE);
   });
 });
