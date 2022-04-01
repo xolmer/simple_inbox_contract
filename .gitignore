@@ -1,4 +1,4 @@
 .DS_Store
 node_modules
 provider
-config
+/config/config.js
